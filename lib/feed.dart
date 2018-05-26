@@ -4,21 +4,23 @@ class Feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: new ListView.builder(
-        itemCount: 2,
-        shrinkWrap: true,
-        itemBuilder: (context, index){
-          return new Container(
-            child: new Column(
-              children: <Widget>[
-                titleRow(),
-                imageRow(),
-                buttonRow(),
-                commentRow(),
-              ],
-            ),
-          );
-        },
+      child: new Flexible(
+              child: new ListView.builder(
+          itemCount: 2,
+          shrinkWrap: true,
+          itemBuilder: (BuildContext context, int index){
+            return new Container(
+              child: new Column(
+                children: <Widget>[
+                  titleRow(),
+                  imageRow(),
+                  buttonRow(),
+                  commentRow(),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -93,48 +95,53 @@ class Feed extends StatelessWidget {
   }
   Container commentRow(){
     return new Container(
-      padding: new EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          new Text('170,101 likes',
-          style: TextStyle(
-            fontWeight: FontWeight.bold
-          ),),
-          new Row(
-            children: <Widget>[
-              new Text('varunn12',
-              style: TextStyle(
-                fontWeight: FontWeight.bold
-              ),),
-              new Text(' French Open 2018 - La Undecima',
-          style: TextStyle(
-          ),),
-            ],
-          ),
-          new Row(
-            children: <Widget>[
-               new CircleAvatar(
-                radius: 12.0,
-                child: Icon(Icons.account_circle,
-                size: 36.0,),
-                backgroundColor: Colors.white,
-              ),
-              new Padding(
-                padding: new EdgeInsets.symmetric(
-                  vertical: 5.0,
-                  horizontal: 20.0),
-                child: new TextFormField(
-                  decoration: new InputDecoration(
-                    hintText: 'Add a comment',
-                    
-                  ),
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+       padding: new EdgeInsets.all(10.0),
+       child: Column(
+         crossAxisAlignment: CrossAxisAlignment.start,
+         children: <Widget>[
+           new Text('170,101 likes',
+           style: TextStyle(
+             fontWeight: FontWeight.bold
+           ),),
+           new Row(
+             children: <Widget>[
+             new Text('varunn12',
+               style: TextStyle(
+                 fontWeight: FontWeight.bold
+               ),),
+               new Text(' French Open 2018 - La Undecima',
+           style: TextStyle(
+           ),),
+             ],
+           ),
+           new Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            
+             children: <Widget>[
+                new CircleAvatar(
+                 radius: 12.0,
+                 child: Icon(Icons.account_circle,
+                 size: 36.0,),
+                 backgroundColor: Colors.white,
+               ),
+               new Expanded(
+                 child: new Padding(
+                   padding: new EdgeInsets.only(
+                     left: 20.0
+                   ),
+                                    child: new TextFormField(
+                     decoration: new InputDecoration(
+                       hintText: 'Add a comment',
+                      
+                     ),
+                   ),
+                 ),
+               )
+             ],
+           )
+         ],
+       ),
     );
   }
 }
