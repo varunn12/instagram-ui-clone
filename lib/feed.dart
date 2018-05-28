@@ -4,7 +4,7 @@ class Feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: new Flexible(
+      child: new Expanded(
               child: new ListView.builder(
           itemCount: 2,
           shrinkWrap: true,
@@ -24,6 +24,26 @@ class Feed extends StatelessWidget {
       ),
     );
   }
+
+}
+  Widget feedWidget()=> new Expanded(
+      child: new ListView.builder(
+          itemCount: 2,
+          shrinkWrap: true,
+          itemBuilder: (BuildContext context, int index){
+            return new Container(
+      child: new Column(
+        children: <Widget>[
+          titleRow(),
+          imageRow(),
+          buttonRow(),
+          commentRow(),
+        ],
+      ),
+            );
+          },
+        ),
+    );
 
   Container titleRow() {
     return new Container(
@@ -144,4 +164,3 @@ class Feed extends StatelessWidget {
        ),
     );
   }
-}

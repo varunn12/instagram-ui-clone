@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
       body: new Column(
         children: <Widget>[
           Toolbar(),
-          StoryBar(),
-          Feed()
+          StoryBar(), 
+          feedWidget(),
+          // Feed()
         ],
       ),
       bottomNavigationBar: new BottomAppBar(
